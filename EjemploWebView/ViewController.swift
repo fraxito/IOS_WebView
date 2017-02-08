@@ -8,10 +8,17 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIWebViewDelegate {
 
+    @IBOutlet weak var cambiaPaginaWeb: UIWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        cambiaPaginaWeb.delegate = self
+        
+        let direccionWeb =  URL(string: "http://www.ufv.es")!
+        cambiaPaginaWeb.loadRequest(URLRequest(url: direccionWeb))
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
